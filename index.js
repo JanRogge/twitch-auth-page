@@ -9,6 +9,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get('/', (req,res) => {
+	res.send(`
+		Hier gibts nichts!
+	`);
+});
+
 app.get('/callback', (req, res) => {
 	axios.post('https://id.twitch.tv/oauth2/token', {
 		client_id: process.env.TWITCH_CLIENT_ID,
